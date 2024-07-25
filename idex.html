@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #game-container {
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        #player-setup {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-group {
+            margin: 10px 0;
+        }
+
+        #player-setup input {
+            padding: 10px;
+            font-size: 1em;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #start-game {
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: 700;
+            color: #fff;
+            background-color: #3b4046;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #start-game:hover {
+            background-color: #0056b3;
+        }
+
+        #board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            margin: 20px auto;
+        }
+
+        .cell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            aspect-ratio: 1;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .cell:hover {
+            background-color: #e0e0e0;
+        }
+
+        .cell:active {
+            transform: scale(0.95);
+        }
+
+        #status {
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+
+        #reset {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: 700;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #reset:hover {
+            background-color: #0056b3;
+        }
+
+        #game {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="player-setup">
+            <div class="input-group">
+                <input type="text" id="player1-name" placeholder="Player 1 Name" required>
+                <select id="player1-symbol">
+                    <option value="X">X</option>
+                    <option value="O">O</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <input type="text" id="player2-name" placeholder="Player 2 Name" required>
+                <select id="player2-symbol">
+                    <option value="O">O</option>
+                    <option value="X">X</option>
+                </select>
+            </div>
+            <button id="start-game">Start Game</button>
+        </div>
+        <div id="game">
+            <div id="status">Player X's turn</div>
+            <div id="board"></div>
+            <button id="reset">Reset Game</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script src="tic-tac-toe.js"></script>
+</body>
+</html>
